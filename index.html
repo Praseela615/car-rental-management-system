@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DriveEase modern car rental management system">
+  <title>DriveEase | Car Rental Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="navbar">
+  <a class="brand" href="#home"><span class="brand-mark">D</span><span>Drive<span>Ease</span></span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  <nav id="mainNav">
+    <a href="#home">Home</a><a href="#cars">Cars</a><a href="#features">Why Us</a>
+    <a href="#about">About</a><a href="#contact">Contact</a>
+    <button class="theme-btn" id="themeToggle" title="Toggle dark mode">◐</button>
+    <a class="nav-cta" href="#booking">Book a Car</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="eyebrow">SMART • SIMPLE • RELIABLE</p>
+    <h1>Drive your journey.<br><span>Your way.</span></h1>
+    <p class="hero-text">Premium cars, transparent pricing and a seamless booking experience for every kind of trip.</p>
+    <div class="hero-actions"><a class="btn primary" href="#cars">Explore Cars →</a><a class="btn ghost" href="#about">How it works</a></div>
+    <div class="hero-stats"><div><strong>50+</strong><span>Cars</span></div><div><strong>1.2K+</strong><span>Bookings</span></div><div><strong>4.9/5</strong><span>Rating</span></div></div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card"><div class="car-photo hero-car"></div><div class="hero-car-info"><span>Featured</span><h3>BMW 3 Series</h3><p>Automatic · Petrol · 5 Seats</p><strong>₹4,999 <small>/day</small></strong></div></div>
+  </div>
+</section>
+
+<section class="booking-strip" id="quickSearch">
+  <div><label>Pickup location</label><input id="quickLocation" type="text" placeholder="Enter city or location"></div>
+  <div><label>Pickup date</label><input id="quickPickup" type="date"></div>
+  <div><label>Return date</label><input id="quickReturn" type="date"></div>
+  <button class="btn primary" id="quickSearchBtn">Find Cars</button>
+</section>
+
+<section class="section" id="cars">
+  <div class="section-heading"><div><p class="eyebrow">OUR FLEET</p><h2>Find your perfect ride</h2></div><p>Choose from comfortable city cars, premium sedans and spacious SUVs.</p></div>
+  <div class="filters">
+    <input id="searchInput" type="search" placeholder="🔎 Search by car name or model...">
+    <select id="categoryFilter"><option value="all">All categories</option><option value="Hatchback">Hatchback</option><option value="Sedan">Sedan</option><option value="SUV">SUV</option><option value="Luxury">Luxury</option></select>
+    <select id="fuelFilter"><option value="all">All fuel types</option><option value="Petrol">Petrol</option><option value="Diesel">Diesel</option><option value="Electric">Electric</option><option value="Hybrid">Hybrid</option></select>
+    <select id="priceFilter"><option value="all">Any price</option><option value="low">Under ₹2,500</option><option value="mid">₹2,500–₹4,000</option><option value="high">Above ₹4,000</option></select>
+  </div>
+  <div class="car-grid" id="carGrid"></div>
+  <p class="empty-state" id="emptyState" hidden>No cars match your filters. Try changing your search.</p>
+</section>
+
+<section class="features section" id="features">
+  <div class="section-heading centered"><p class="eyebrow">WHY DRIVE EASE</p><h2>Everything you need for a better rental</h2></div>
+  <div class="feature-grid">
+    <article><div class="icon">✓</div><h3>Easy Booking</h3><p>Book your preferred car in minutes with a simple, validated form.</p></article>
+    <article><div class="icon">₹</div><h3>Transparent Pricing</h3><p>No confusing calculations. See the daily rate and estimated total before booking.</p></article>
+    <article><div class="icon">24</div><h3>24/7 Support</h3><p>Our support team is available whenever you need help with your journey.</p></article>
+    <article><div class="icon">★</div><h3>Quality Cars</h3><p>Every vehicle is inspected and maintained for a safe, comfortable drive.</p></article>
+  </div>
+</section>
+
+<section class="split section" id="about">
+  <div class="about-art"><div class="about-badge">Trusted<br><strong>Since 2024</strong></div></div>
+  <div><p class="eyebrow">ABOUT DRIVE EASE</p><h2>More than a rental. It's freedom.</h2><p>DriveEase is a student-built car rental management system designed around the real-world rental journey: discover a vehicle, compare options, choose dates, validate customer details and confirm a booking.</p><p>The project demonstrates responsive UI design, JavaScript search and filtering, form validation, dynamic rendering and LocalStorage-based booking history.</p><div class="check-list"><span>✓ Responsive design</span><span>✓ Dynamic car listings</span><span>✓ Booking validation</span><span>✓ LocalStorage support</span></div></div>
+</section>
+
+<section class="section booking-section" id="booking">
+  <div class="section-heading"><div><p class="eyebrow">RESERVE A CAR</p><h2>Ready when you are.</h2></div><p>Fill in your details and we'll create your booking request.</p></div>
+  <form class="booking-form" id="bookingForm" novalidate>
+    <div class="form-group"><label for="fullName">Full name *</label><input id="fullName" required placeholder="Your full name"><small class="error"></small></div>
+    <div class="form-group"><label for="email">Email *</label><input id="email" type="email" required placeholder="you@example.com"><small class="error"></small></div>
+    <div class="form-group"><label for="phone">Phone *</label><input id="phone" inputmode="numeric" required placeholder="10-digit mobile number"><small class="error"></small></div>
+    <div class="form-group"><label for="carSelect">Choose car *</label><select id="carSelect" required><option value="">Select a car</option></select><small class="error"></small></div>
+    <div class="form-group"><label for="pickupDate">Pickup date *</label><input id="pickupDate" type="date" required><small class="error"></small></div>
+    <div class="form-group"><label for="returnDate">Return date *</label><input id="returnDate" type="date" required><small class="error"></small></div>
+    <div class="form-group full"><label for="notes">Special request</label><textarea id="notes" rows="3" placeholder="Any additional request (optional)"></textarea></div>
+    <div class="booking-summary full"><div><span>Estimated duration</span><strong id="durationText">—</strong></div><div><span>Estimated total</span><strong id="totalText">₹0</strong></div></div>
+    <button class="btn primary full" type="submit">Confirm Booking</button>
+  </form>
+</section>
+
+<section class="section history" id="history">
+  <div class="section-heading"><div><p class="eyebrow">YOUR BOOKINGS</p><h2>Booking history</h2></div><button class="btn danger-outline" id="clearBookings">Clear history</button></div>
+  <div id="bookingHistory" class="history-list"></div>
+</section>
+
+<section class="contact section" id="contact">
+  <div><p class="eyebrow">GET IN TOUCH</p><h2>Let's get you on the road.</h2><p>Have a question about a vehicle or your booking? Reach out to the DriveEase team.</p></div>
+  <div class="contact-cards"><div><strong>📍</strong><span>Bengaluru, Karnataka</span></div><div><strong>✉</strong><span>support@driveease.example</span></div><div><strong>☎</strong><span>+91 98765 43210</span></div></div>
+</section>
+</main>
+
+<footer><div class="footer-brand"><a class="brand" href="#home"><span class="brand-mark">D</span><span>Drive<span>Ease</span></span></a><p>Modern car rental management system.</p></div><div><h4>Quick Links</h4><a href="#cars">Cars</a><a href="#booking">Book</a><a href="#about">About</a></div><div><h4>Project</h4><a href="#features">Features</a><a href="#history">Bookings</a><a href="#contact">Contact</a></div></footer>
+<div class="toast" id="toast"></div>
+<div class="modal" id="carModal" aria-hidden="true"><div class="modal-box"><button class="modal-close" id="modalClose">×</button><div id="modalContent"></div></div></div>
+<script src="js/cars.js"></script><script src="js/script.js"></script>
+</body>
+</html>
